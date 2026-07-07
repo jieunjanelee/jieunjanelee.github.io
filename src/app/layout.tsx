@@ -1,26 +1,31 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { siteConfig } from "@/lib/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Display face: variable Archivo — we push the width axis to fully expanded
+// (see globals.css) for a wide, flat, low display look with lighter strokes.
+const archivo = Archivo({
+  variable: "--font-display",
   subsets: ["latin"],
+  axes: ["wdth"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Body face: clean grotesque for running text and UI.
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Jane Lee",
-    template: "%s | Jane Lee",
+    default: siteConfig.name,
+    template: `%s — ${siteConfig.name}`,
   },
-  description: "Portfolio of Jane Lee — software engineer.",
+  description: siteConfig.description,
   openGraph: {
-    title: "Jane Lee",
-    description: "Portfolio of Jane Lee — software engineer.",
+    title: siteConfig.name,
+    description: siteConfig.description,
     type: "website",
   },
 };
@@ -33,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${archivo.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

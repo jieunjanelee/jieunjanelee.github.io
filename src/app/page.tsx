@@ -1,7 +1,17 @@
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { Hero } from "@/components/sections/Hero";
+import { WorkTeaser } from "@/components/sections/WorkTeaser";
+
 export default function Home() {
   return (
-    <main>
-      <p>Portfolio — coming soon.</p>
-    </main>
+    <>
+      <Header />
+      <main className="flex flex-1 flex-col">
+        <Hero />
+        <WorkTeaser />
+      </main>
+      <Footer />
+    </>
   );
 }

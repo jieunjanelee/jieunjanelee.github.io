@@ -3,6 +3,8 @@ export interface Project {
   title: string;
   description: string;
   tags: string[];
+  /** Flat solid colour placeholder shown until a cover image is added. */
+  color: string;
   href?: string;
   repoHref?: string;
   featured?: boolean;
